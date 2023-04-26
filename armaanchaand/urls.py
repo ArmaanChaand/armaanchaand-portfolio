@@ -17,7 +17,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.views.generic import TemplateView
+from home.views import ( GetHomeData, GetAboutData, GetSkillsData, 
+                GetProjectsData, GetContactData, GetAllProjects, GetAllSocials
+                )
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/home/', GetHomeData, name="homedata-api"),
+    path('api/about/', GetAboutData, name="aboutdata-api"),
+    path('api/skills/', GetSkillsData, name="skillsdata-api"),
+    path('api/projects/', GetProjectsData, name="projectsdata-api"),
+    path('api/contact/', GetContactData, name="contactdata-api"),
+    path('api/allprojects/', GetAllProjects, name="projects-api"),
+    path('api/allsocials/', GetAllSocials, name="socials-api"),
     path("", TemplateView.as_view(template_name='index.html'), name="homepage"),
 ]
