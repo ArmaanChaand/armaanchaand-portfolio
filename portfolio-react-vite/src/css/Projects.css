@@ -1,0 +1,28 @@
+.PROJECTS-PAGE{
+    @apply w-full h-screen flex flex-col items-center justify-center
+}
+.PROJECTS-PAGE h1.page-heading{
+    @apply text-4xl sm:text-5xl font-Arizonia md:self-start md:ml-48 mb-10 
+}
+.PROJECTS {
+    @apply w-[95%] sm:w-[90%] md:w-2/3 h-3/5 flex flex-row justify-start items-start px-3
+    overflow-y-hidden overflow-x-scroll gap-2
+    snap-x
+    scroll-smooth scrollbar scrollbar-thumb-stone-400/20 hover:scrollbar-thumb-green-600 scrollbar-h-3
+}
+.PROJECTS > .project{
+    @apply  w-full h-[90%] shadow-lg bg-dark snap-center
+    border-t-2 border-gray-500 hover:border-green-600 rounded-sm flex-none
+}
+.PROJECTS .project.project-msg > svg{
+    @apply text-7xl
+}
+.PROJECTS .project.project-msg > h3{
+    @apply text-3xl font-semibold
+}
+.PROJECTS .project.project-msg > a{
+    @apply text-xl text-red-500 underline underline-offset-2 
+}
+.PROJECTS .project.project-msg:hover > a{
+    @apply text-xl text-green-600 
+}

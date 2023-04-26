@@ -1,0 +1,32 @@
+.CONTACT-PAGE > .msg-socials > form.CONTACT{
+    @apply w-[90%] md:w-1/2 h-full flex flex-col justify-start items-center md:items-start
+}
+.CONTACT-PAGE > .msg-socials > form.CONTACT > h2.contact-heading{
+    @apply text-lg uppercase text-green-400 mb-3 font-semibold
+}
+.CONTACT-PAGE > .msg-socials > form.CONTACT > div.name-email{
+    @apply w-full flex flex-col md:flex-row justify-start items-start
+}
+.CONTACT-PAGE > .msg-socials > form.CONTACT > div.name-email > div{
+    @apply w-full h-full flex flex-col justify-start items-start mb-5 md:mb-0 md:mr-3
+}
+.CONTACT-PAGE > .msg-socials > form.CONTACT > div.name-email > div:last-child{
+    @apply mr-0 mb-0
+}
+.CONTACT-PAGE > .msg-socials > form.CONTACT  label{
+    @apply text-base mb-1
+}
+.CONTACT-PAGE > .msg-socials > form.CONTACT > div.name-email > div > input{
+    @apply w-full text-base p-3 rounded-sm bg-slate-900/50 border-l-2 border-green-600 
+    outline-0
+}
+.CONTACT-PAGE > .msg-socials > form.CONTACT > div.Message{
+    @apply w-full h-full flex flex-col justify-start items-start mt-5 mb-5 rounded-sm 
+}
+.CONTACT-PAGE > .msg-socials > form.CONTACT > div.Message > textarea{
+    @apply h-full w-full text-base p-3 rounded-sm bg-slate-900/50 border-l-2 border-green-600 
+    outline-0 resize-none
+}
+.CONTACT-PAGE > .msg-socials > form.CONTACT > button{
+    @apply mt-auto text-base ml-auto w-48 bg-green-600 rounded-sm py-3 font-bold
+}

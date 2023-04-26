@@ -1,0 +1,26 @@
+.SOCIALS {
+    @apply hidden md:flex flex-col justify-start items-start overflow-hidden md:w-1/2 md:h-full md:ml-10
+    absolute md:[position:inherit] bg-dark inset-0 pb-28 md:pb-0
+}
+.SOCIALS.OPEN {
+    @apply w-full md:w-1/2 flex
+}
+.Socials {
+    @apply flex flex-col justify-start items-start w-full h-full
+}
+.Socials > h2.social-heading{
+    @apply text-lg uppercase text-green-400 font-semibold
+}
+.Socials > div.icons{
+    @apply grid grid-cols-2 gap-3 mt-3 w-full h-full
+}
+.Socials > div.icons > a{
+    @apply flex items-center justify-center text-3xl bg-slate-800 hover:bg-green-600
+    rounded
+}
+.Socials > div.icons > a.email{
+    @apply text-4xl
+}
+/* .Socials > div.icons > a.email{
+    @apply text-3xl
+} */

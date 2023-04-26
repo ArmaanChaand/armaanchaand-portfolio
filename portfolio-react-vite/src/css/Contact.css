@@ -1,0 +1,15 @@
+.CONTACT-PAGE{
+    @apply w-screen h-screen flex flex-col justify-center items-center relative
+}
+.CONTACT-PAGE > h1.page-heading{
+    @apply text-4xl font-Arizonia md:mr-auto md:ml-36 mt-16 mb-5
+}
+.message{
+    @apply absolute left-10 top-10 bg-red-500 py-3 px-2 h-14 min-h-fit w-48 min-w-fit animate-fade_in_right
+}
+.message > .sending{
+    @apply flex flex-row justify-center items-center gap-3 text-xl
+}
+.message > .sending > svg{
+    @apply animate-spin
+}

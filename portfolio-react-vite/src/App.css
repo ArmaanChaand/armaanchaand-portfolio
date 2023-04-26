@@ -1,0 +1,47 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Arizonia&display=swap'); */
+@import url('./Fonts.css');
+:root{
+  @apply bg-dark font-mono text-stone-300 scroll-smooth overflow-hidden
+}
+body{
+  @apply bg-dark h-screen w-screen overflow-hidden transition-all scroll-smooth
+  flex justify-center items-center 
+}
+div#root{
+  @apply h-screen w-full overflow-hidden flex justify-center items-center
+}
+main.MAIN{
+  @apply w-full h-screen bg-dark flex flex-col justify-between items-center relative
+  overflow-x-hidden snap-y overflow-y-scroll scroll-smooth
+  scrollbar scrollbar-thumb-stone-400/20 hover:scrollbar-thumb-green-600 scrollbar-w-2
+}
+section {
+  @apply snap-start w-screen h-screen flex-none
+}
+main.MAIN > button.TEST{
+  @apply absolute top-5 right-5 bg-gray-600 py-3 px-5 rounded active:bg-red-500
+}
+main.MAIN > div.MESSAGE-CONTAINER{
+  @apply absolute w-64 h-auto right-5 lg:right-16 bottom-10 z-40
+  flex flex-col justify-center items-center
+}
+main.MAIN > div.MESSAGE-CONTAINER > div.MESSAGE{
+  @apply w-full py-3 bg-red-500 animate-slide_in_left
+}
+
+/* Loader */
+.LOADER{
+  @apply w-full h-full absolute bg-dark flex flex-col items-center justify-center z-50
+}
+.LOADER > h1.NAME-LOGO{
+  @apply font-Arizonia relative text-7xl font-bold
+}
+.LOADER > h1.NAME-LOGO > svg{
+  @apply absolute -top-5 -right-5 -z-10 fill-green-600 
+}
+.LOADER > .progress-bar{
+  @apply w-32 h-1 bg-stone-300 mt-4 rounded relative overflow-hidden
+}
+.LOADER > .progress-bar > .progress{
+  @apply relative bg-green-600 inset-0 z-50 block w-0 h-full animate-load_width
+}

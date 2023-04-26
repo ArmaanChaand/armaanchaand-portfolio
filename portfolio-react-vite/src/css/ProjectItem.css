@@ -1,0 +1,41 @@
+div.project{
+    @apply overflow-hidden relative z-0 animate-fade_in_left
+}
+
+div.project-content{
+    @apply  flex flex-col items-start justify-center w-full h-full bg-dark/80 px-3 py-4
+}
+div.project-content > h3.name{
+    @apply text-2xl font-bold w-full truncate
+}
+div.project-content > p.description{
+    @apply text-base mt-3 text-start w-full
+}
+div.project-content > p.skills{
+    @apply text-sm flex flex-row my-3  text-stone-400 
+}
+div.project-content div.links{
+    @apply flex flex-row justify-center items-center mb-auto
+}
+div.project-content div.links a{
+    @apply text-2xl 
+}
+div.project-content div.links a.project_url{
+    @apply ml-1 
+}
+div.project-content div.footer{
+    @apply self-end flex flex-row 
+} 
+div.project-content div.footer .button{
+    @apply block w-28 mr-2 px-1 py-2 rounded-sm text-base border-2 text-center
+    border-gray-500 border-stone-300 font-semibold
+}
+div.project-content:hover div.footer .button{
+    @apply border-green-600
+}
+div.project-content div.footer .button.EXPLORE{
+    @apply  bg-gray-500 bg-stone-300  text-dark mr-0 
+}
+div.project-content:hover div.footer .button.EXPLORE{
+    @apply bg-green-600 transition-none text-stone-300
+}

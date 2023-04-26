@@ -1,0 +1,12 @@
+.SOCIAL.S1 > ul{
+    @apply p-3 bg-dark flex flex-row justify-center items-center
+}
+.SOCIAL.S1 ul > li{
+    @apply mb-0 mr-2
+}
+.SOCIAL.S1 ul > li:last-child{
+    @apply mr-0
+}
+.SOCIAL.S1 ul > li > a > svg{
+    @apply w-8 h-8 fill-stone-300
+}

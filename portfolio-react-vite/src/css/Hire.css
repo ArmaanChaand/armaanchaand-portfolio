@@ -1,0 +1,18 @@
+.HIRE{
+    @apply w-full md:w-1/2 h-full flex-none snap-center
+}
+.HIRE h2.hire-heading{
+    @apply text-lg uppercase text-green-400 mb-3 font-semibold
+}
+/* .HIRE .platforms{
+    @apply h-full w-full grid grid-cols-1
+}
+.HIRE .platforms .fiverr{
+    @apply bg-green-700
+}
+.HIRE .platforms .pph{
+    @apply bg-orange-600
+}
+.HIRE .platforms .socials{
+    @apply bg-slate-400
+} */
