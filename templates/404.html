@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Page Not Found</title>
+    <style>
+        body{
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            background-color: #121212;
+            color: aliceblue;
+        }
+        h1{
+            font-size: 4rem;
+            font-weight: 800;
+            text-align: center;
+        }
+        a{
+            margin-bottom: 50px;
+            text-decoration: none;
+            font-size: 1rem;
+            color: steelblue;
+        }
+    </style>
+  </head>
+  <body>
+    <h1>Page Not Found</h1>
+    <a href="{% url 'homepage' %}">Go To Homepage</a>
+	<script></script>
+  </body>
+</html>

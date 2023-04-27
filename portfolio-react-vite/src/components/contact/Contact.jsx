@@ -4,7 +4,7 @@ import { ContactForm } from "./ContactForm";
 import { CONTACT } from "../../data/Pages";
 import {TbLoader3} from "react-icons/tb";
 
-function Contact(){
+function Contact({csrf}){
     const [contactPage, setContactPage] = useState({})
     useEffect(()=>{
         const API_URL = 'api/contact/'
@@ -36,6 +36,7 @@ function Contact(){
                {contactPage.heading}
             </h1>
             <ContactForm
+                csrf={csrf}
                 setIsMessage={setIsMessage}
                 setIsSending={setIsSending}
                 setIsSent={setIsSent}

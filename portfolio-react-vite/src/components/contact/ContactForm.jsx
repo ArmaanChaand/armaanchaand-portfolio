@@ -1,32 +1,36 @@
 import { useRef } from "react";
 import "../../css/ContactForm.css";
-function ContactForm({ setIsMessage, setIsSending, setIsSent, setIsSendingFailed}){
+function ContactForm({csrf, setIsMessage, setIsSending, setIsSent, setIsSendingFailed}){
     const form = useRef();
     function handleOnSubmit(e){
         e.preventDefault()
         setIsMessage(true)
         setIsSending(true)
-        // emailjs.sendForm('armaan_chaand_aurora', 'template_zqxh8h3', form.current, 'mjoVauzPGfpH9zh1d')
-        // .then((result) => {
-        //     if(result.text === "OK"){
-        //         setIsSending(false)
-        //         setIsSent(true)
-        //         form.current.reset()
-        //         setTimeout(()=>{
-        //             setIsMessage(false)
-        //         }, 1500)
-        //     }
-        // }, (error) => {
-        //     console.log(error.text);
-        //     setIsSent(false)
-        //     setIsSendingFailed(true)
-        //     setTimeout(()=>{
-        //         setIsMessage(false)
-        //     }, 1500)
-        // });
-        setTimeout(()=>{
-            setIsMessage(false)
-        }, 1500)
+        const form_data = new FormData(form.current)
+        const API_URL = 'api/sendemail/'
+        const OPTIONS = {
+            method: "POST",
+            headers: {
+                'X-CSRFToken': csrf
+            },
+            body: form_data
+        }
+        fetch(API_URL, OPTIONS).then((response)=> response.json()).then((result)=>{
+            console.log(result)
+            setIsSending(false)
+            setIsSent(true)
+            setTimeout(()=>{
+                setIsMessage(false)
+            }, 1500)
+        }).catch((err)=>{
+            console.log(err)
+            setIsSending(false)
+            setIsSendingFailed(true)
+            setTimeout(()=>{
+                setIsMessage(false)
+            }, 1500)
+        })
+       
     }
     return (
             <form ref={form} className="CONTACT" onSubmit={handleOnSubmit}>

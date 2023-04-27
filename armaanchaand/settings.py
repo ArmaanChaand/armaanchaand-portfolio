@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -20,14 +20,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-0=7tvpfm*b#l=#m!a^4noij5w1go+)r7#i#5b(tqn83^h#w^$x'
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-0=7tvpfm*b#l=#m!a^4noij5w1go+)r7#i#5b(tqn83^h#w^$x') 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = str(os.environ.get('DEBUG')) == "1"
 
 ALLOWED_HOSTS = []
-
-
+if not DEBUG:
+    ALLOWED_HOSTS += [os.environ.get('ALLOWED_HOST_IP')]
+    ALLOWED_HOSTS += [os.environ.get('ALLOWED_HOST_DOMAIN')]
+    ALLOWED_HOSTS += [os.environ.get('ALLOWED_HOST_WWW_DOMAIN')]
 # Application definition
 
 INSTALLED_APPS = [
@@ -56,7 +58,8 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            BASE_DIR / 'portfolio-react-vite/dist'
+            # BASE_DIR / 'portfolio-react-vite/dist',
+            BASE_DIR / 'templates'
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -118,11 +121,28 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'assets/'
+# In Development
+# STATIC_URL = 'assets/'
+# STATICFILES_DIRS = [
+#     BASE_DIR / 'portfolio-react-vite/dist/assets'
+# ]
+
+
+# In Production
+STATIC_URL = 'static/'
 STATICFILES_DIRS = [
-    BASE_DIR / 'portfolio-react-vite/dist/assets'
+    BASE_DIR / 'static'
 ]
+STATIC_ROOT = os.path.join(BASE_DIR, 'cdn-static')
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')

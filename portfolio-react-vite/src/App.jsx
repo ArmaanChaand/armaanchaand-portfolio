@@ -7,6 +7,17 @@ import { Contact } from './components/contact/Contact';
 import { ABOUT, SKILLS  } from './data/Pages';
 function App() {
   const [skillsPage, setSkillsPage] = useState({})
+  const [csrf, setCsrf] = useState('')
+  useEffect(()=>{
+    const API_URL = 'api/getcsrf/'
+    fetch(API_URL).then((response)=> response.json()).then((result)=>{
+      if(result.success){
+        setCsrf(result.token)
+      }
+    }).catch((err)=>{
+      console.log(err)
+    })
+  }, [])
   useEffect(()=>{
     const API_URL = 'api/skills/'
     fetch(API_URL).then((response)=> response.json()).then((result)=>{
@@ -52,7 +63,7 @@ function App() {
             page_class="SKILLS"
           />
           <Projects />
-          <Contact/>
+          <Contact csrf={csrf}/>
       </main>
   )
 }

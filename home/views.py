@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from django.http import JsonResponse
+from django.middleware.csrf import get_token
+from django.core.mail import send_mail
 from .models import HomePage, AboutPage, SkillsPage, ProjectsPage, ContactPage, ProjectItem, SocialMedia
+from .forms import MessageForm
 # Create your views here.
 def GetHomeData(request):
     try:
@@ -123,3 +126,32 @@ def GetAllSocials(request):
         }
         return JsonResponse(data)
 
+def getCSRFtoken(request):
+    token = get_token(request)
+    data = {
+        "success": True,
+        "token": token
+    }
+    return JsonResponse(data)
+
+def sendEmail(request):
+    if request.method == "POST":
+        Name = request.POST.get("Name")
+        Email = request.POST.get("Email")
+        Message = request.POST.get("Message")
+        form = MessageForm(request.POST)
+        if form.is_valid():
+            form.save()
+        send_mail(
+            "Test Message", 
+            f"{Name} | {Email} | {Message}", 
+            'auroraborealisac@gmail.com', 
+            ['armaanchaand89@gmail.com'],
+            fail_silently=False,
+        )
+        data = {
+            "Name": Name,
+            "Email": Email,
+            "Message": Message,
+        }
+        return JsonResponse(data)
