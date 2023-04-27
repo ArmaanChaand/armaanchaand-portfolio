@@ -1,2 +1,1 @@
-web: python manage.py migrate && python manage.py collectstatic && gunicorn
-armaanchaand.wsgi
+web: python manage.py migrate && python manage.py collectstatic && gunicorn armaanchaand.wsgi
