@@ -25,7 +25,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-0=7tvpfm*b#l=#m!a^4no
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = str(os.environ.get('DEBUG')) == "1"
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['armaanchaand.up.railway.app', 'www.armaanchaand.up.railway.app']
 # Application definition
 
 INSTALLED_APPS = [
