@@ -26,10 +26,6 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-0=7tvpfm*b#l=#m!a^4no
 DEBUG = str(os.environ.get('DEBUG')) == "1"
 
 ALLOWED_HOSTS = []
-if not DEBUG:
-    ALLOWED_HOSTS += [os.environ.get('ALLOWED_HOST_IP')]
-    ALLOWED_HOSTS += [os.environ.get('ALLOWED_HOST_DOMAIN')]
-    ALLOWED_HOSTS += [os.environ.get('ALLOWED_HOST_WWW_DOMAIN')]
 # Application definition
 
 INSTALLED_APPS = [
