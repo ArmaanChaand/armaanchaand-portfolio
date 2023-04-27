@@ -27,7 +27,7 @@ DEBUG = str(os.environ.get('DEBUG')) == "1"
 
 # ALLOWED_HOSTS = ['armaanchaand.up.railway.app', 'www.armaanchaand.up.railway.app']
 ALLOWED_HOSTS = ['armaanchaand.up.railway.app']
-CSRF_TRUSTED_ORIGINS = ['armaanchaand.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://armaanchaand.up.railway.app']
 # Application definition
 
 INSTALLED_APPS = [
